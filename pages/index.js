@@ -1,5 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import db from '../db.json';
+import Widget from '../src/components/Widget';
+import QuizBackground from '../src/components/QuizBackground';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -12,34 +16,39 @@ export const QuizContainer = styled.div`
   }
 `;
 
-const BackgroundImage = styled.div`
+/*const BackgroundImage = styled.div`
   background-image: url(${db.bg});
   flex: 1;
   background-size: cover;
   background-position: center;
   height: 100vh;
-`;
+`;*/
 
-const Widget = styled.div`
-  margin-top: 24px;
-  margin-bottom: 24px;
-  border: 1px solid #4CAF50;
-  background-color: #1C1814;
-  border-radius: 4px;
-  overflow: hidden;
-`;
 
 export default function Home() {
   return (
-    < BackgroundImage>
+    < QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <Widget>
-          shdakjhdka
+          <Widget.Header>
+            <h1>The legend of Zelda</h1>
+          </Widget.Header>
+          <Widget.Content>
+            <p>Lorem ipsum dolor sit amet ...</p>
+          </Widget.Content>
         </Widget>
+        <Widget>
+          <Widget.Content>
+            <h1>
+             Quiz da galera
+           </h1>
+          
+            <p>Lorem ipsum dolor sit amet ...</p>
+          </Widget.Content>
+        </Widget>
+        <Footer/>
       </QuizContainer>
-      <QuizContainer>
-        shndjandj
-      </QuizContainer>
-    </ BackgroundImage>
+      <GitHubCorner projectUrl="https://github.com/Aline595"/>
+    </ QuizBackground>
   );
 }
